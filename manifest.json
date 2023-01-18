@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "version": "0.1.0",
+  "name": "My Polycom Extension",
+  "description": "",
+  "permissions": ["storage", "tabs", "webRequest"],
+  "host_permissions": ["*://*.power.dat.com/search/loads/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.power.dat.com/search/loads/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_title": "My Polycom Extension",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "16.png",
+      "48": "48.png",
+      "128": "128.png"
+    }
+  }
+}
